@@ -118,6 +118,9 @@ class FFStream:
 
     def __init__(self, data_lines):
         for line in data_lines:
+            if line.find("=") == -1:
+                continue
+
             self.__dict__.update({key: value for key, value, *_ in [line.strip().split('=')]})
 
             try:
